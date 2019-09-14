@@ -23,7 +23,7 @@ HSE Software Engineering docs safespace
 - [Сайт по Вышмату по рекомендации куратора](http://mathprofi.ru/)
 
 - [Папка с материалами за 2017-2018 год](https://paper.dropbox.com/doc/171-FEcBZyQPLbMwKMAPP1vQr)
-- [Папка с материалами по 1 курсу](https://drive.google.com/drive/folders/1mwh6T4W00BUHz3mga4nWMgFMJM7eIUOg)
+- [Папка с материалами по 1 курсу (различные темы)](https://drive.google.com/drive/folders/1mwh6T4W00BUHz3mga4nWMgFMJM7eIUOg)
 - [Сайт с решением БЖД](https://iko.soy/hse)
 
 Ave Avdoshin, deus 8.
