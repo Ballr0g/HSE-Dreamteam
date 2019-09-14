@@ -1,0 +1,2762 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Основы и Методология Программирования 2017\n",
+    "*Мини-конспект-шпаргалка*\n",
+    "\n",
+    "Лектор &mdash; Густокашин Михаил Сергеевич.  \n",
+    "Полный (но в некоторых местах неточный) конспект &mdash; <https://yadi.sk/i/BkcKilJkumcPV>.\n",
+    "\n",
+    "## Лекция №1 (08.09.2017)\n",
+    "### Что ждет студетов?\n",
+    ">Чтобы научиться прогать, нужно потратить около 10 000 часов. Если даже 40 часов в неделю трудиться, сами считайте, сколько недель получается.\n",
+    "\n",
+    "&nbsp;\n",
+    ">Автоматов нет, потому что зачем вам автомат, если вы можете сходить на экзамен.\n",
+    "\n",
+    "Язык *Python 3.х* &mdash; <https://python.org/>.  \n",
+    "Рекомендованная IDE &mdash; JetBrains PyCharm &mdash; <https://www.jetbrains.com/pycharm/>.  \n",
+    "Изучить PEP 8 &mdash; гайд по стилю кода питона &mdash; <https://www.python.org/dev/peps/pep-0008/>.\n",
+    "### Введение в Python\n",
+    "Вывод в консоль:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hello, world!\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Hello, world!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(2 + 3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "23\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('2' + '3')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2 + 3 = 5\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('2 + 3 =', 2 + 3) # Пробел-разделитель вставляется на место каждой запятой"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2 + 3 =5\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Есть возможность заменить стандартный разделитель (пробел), например, на пустую строку\n",
+    "print('2 + 3 =', 2 + 3, sep=\"\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2 + 3 =5\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('2 + 3 =' + str(2 + 3)) # Можно обойтись конкатенацией"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1 + 2 + 3 + 4 = 10\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Есть возможность заменить стандартное окончание строки (\\n), например, на пустую строку:\n",
+    "print('1 + 2 + 3 + 4 = ', end=\"\")\n",
+    "print(10)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "* * *\n",
+    "Переменные:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "500\n"
+     ]
+    }
+   ],
+   "source": [
+    "speed = 100\n",
+    "time = 5\n",
+    "dist = speed * time\n",
+    "print(dist)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "* * *\n",
+    "В питоне правильное (математическое) целочисленное деление и взятие остатка:  \n",
+    "```\n",
+    "C = A // B\n",
+    "D = A % B\n",
+    "(A = B * C + D)\n",
+    "```\n",
+    "\n",
+    "Если `B > 0`, то `0 <= D < B`  \n",
+    "Если `B < 0`, то `B < D <= 0`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "11 5 2 1\n",
+      "-11 5 -3 4\n",
+      "11 -5 -3 -4\n",
+      "-11 -5 2 -1\n"
+     ]
+    }
+   ],
+   "source": [
+    "A = 11\n",
+    "B = 5\n",
+    "C = A // B\n",
+    "D = A % B\n",
+    "print(A, B, C, D)\n",
+    "\n",
+    "A = -11\n",
+    "B = 5\n",
+    "C = A // B\n",
+    "D = A % B\n",
+    "print(A, B, C, D)\n",
+    "\n",
+    "A = 11\n",
+    "B = -5\n",
+    "C = A // B\n",
+    "D = A % B\n",
+    "print(A, B, C, D)\n",
+    "\n",
+    "A = -11\n",
+    "B = -5\n",
+    "C = A // B\n",
+    "D = A % B\n",
+    "print(A, B, C, D)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "* * *\n",
+    "Ввод:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n",
+      "3\n",
+      "23\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = input()\n",
+    "b = input()\n",
+    "print(a + b) # input() возвращает строку"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n",
+      "3\n",
+      "5\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = int(input())\n",
+    "b = int(input())\n",
+    "print(a + b)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "Задачки:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "12345\n",
+      "2\n",
+      "45\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Вывести последние К цифр числа N\n",
+    "N = int(input())\n",
+    "K = int(input())\n",
+    "print(N % 10 ** K)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "123456\n",
+      "6\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Вывести количество цифр числа N\n",
+    "N = int(input())\n",
+    "print(len(str(N)))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "12345\n",
+      "2\n",
+      "12\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Вывести первые К цифр числа N\n",
+    "N = int(input())\n",
+    "K = int(input())\n",
+    "print(N // 10 ** (len(str(N)) - K))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "В питоне все переменные &mdash; это ссылки. Присутствует сборщик мусора."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "collapsed": true
+   },
+   "source": [
+    "## Лекция №2 (11.09.2017)\n",
+    "### Булева алгебра и условный переход\n",
+    "Логический тип данных может хранить только `True` и `False`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "-1 is even == False\n",
+      "-1 is odd == True\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = -1\n",
+    "isEven = x % 2 == 0\n",
+    "isOdd = x % 2 == 1\n",
+    "print(x, \"is even ==\", isEven)\n",
+    "print(x, \"is odd ==\", isOdd)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Доступные операции `== != < > <= >=`. Поддерживается несколько операций в выражении, например `1 <= x < 5`. Сравнение строк происходит лексикографически. Операторы: `and or not`. Не надо бояться пользоваться скобками для задания приоритетов операций!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "s1, e1, s2, e2 = 1, 3, 4, 5\n",
+    "isS1in2 = s2 <= s1 <= e2\n",
+    "isE1in2 = s2 <= e1 <= e2\n",
+    "isS2in2 = s1 <= s2 <= e1\n",
+    "isE2in2 = s1 <= e1 <= e1\n",
+    "is1in2 = isS1in2 or isE1in2\n",
+    "is2in1 = isS2in2 or isE1in2\n",
+    "intersect = is1in2 or is2in1\n",
+    "print(intersect)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "s1, e1, s2, e2 = 1, 3, 4, 5\n",
+    "intersect = s1 <= e2 and s2 <= e1 # Более короткий способ\n",
+    "print(intersect)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Происходит оптимизация операций: если понятен результат логических выражений, остальные не считаются."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "x, y = 1, 0\n",
+    "res = y != 0 and x % y == 0 # Правая часть выражения не вычисляется, если выполняется левая\n",
+    "print(res)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Функция `bool(Object)` возвращает:\n",
+    "- Для строки `False`, только если строка пустая, иначе `True`;\n",
+    "- Для целого `False`, только если число ноль, иначе `True`.\n",
+    "\n",
+    "Есть неявное приведение типов, которое лучше не использовать, т.к. не всегда понятен такой код."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "-51\n",
+      "51\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Задача \"Вывести модуль числа\"\n",
+    "x = int(input())\n",
+    "if x < 0:\n",
+    "    x = -x # Программа портит входные данные, программа плохая!\n",
+    "print(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "-51\n",
+      "51\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Задача \"Вывести модуль числа\". Велосипедное решение\n",
+    "x = int(input())\n",
+    "if x < 0:\n",
+    "    print(-x)\n",
+    "else:\n",
+    "    print(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "-51\n",
+      "51\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Задача \"Вывести модуль числа\". Хорошее решение\n",
+    "x = int(input())\n",
+    "print(abs(x))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4\n",
+      "-5\n",
+      "4\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Задача \"Определить четверть точки на плоскости\"\n",
+    "x, y = int(input()), int(input())\n",
+    "if x > 0:\n",
+    "    if y > 0:\n",
+    "        print(1)\n",
+    "    else:\n",
+    "        print(4)\n",
+    "else:\n",
+    "    if y > 0:\n",
+    "        print(2)\n",
+    "    else:\n",
+    "        print(3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "6\n",
+      "Unknown number\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Для подряд идущих условий можно использовать следующую конструкцию\n",
+    "x = int(input())\n",
+    "if x == 1:\n",
+    "    print('One')\n",
+    "elif x == 2:\n",
+    "    print('Two')\n",
+    "elif x == 3:\n",
+    "    print('Three')\n",
+    "else:\n",
+    "    print('Unknown number')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Циклы"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "2\n",
+      "3\n",
+      "4\n",
+      "5\n",
+      "6\n",
+      "7\n"
+     ]
+    }
+   ],
+   "source": [
+    "i = 1\n",
+    "while i <= 7:\n",
+    "    print(i)\n",
+    "    i += 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n",
+      "4\n",
+      "7\n",
+      "0\n",
+      "14\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Задача \"Сумма чисел\"\n",
+    "nowSum = 0\n",
+    "now = int(input())\n",
+    "while now != 0:\n",
+    "    nowSum += now\n",
+    "    now = int(input())\n",
+    "print(nowSum)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4\n",
+      "5\n",
+      "-1\n",
+      "0\n",
+      "5\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Задача \"Максимум\"\n",
+    "now = int(input())\n",
+    "nowMax = now\n",
+    "while now != 0:\n",
+    "    if now > nowMax:\n",
+    "        nowMax = now\n",
+    "    now = int(input())\n",
+    "print(nowMax)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "2\n",
+      "3\n",
+      "4\n",
+      "5\n",
+      "6\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Плохое использование break\n",
+    "i = 1\n",
+    "while True:\n",
+    "    print(i)\n",
+    "    i += 1\n",
+    "    if i > 6:\n",
+    "        break"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Один из способов выйти из вложенного цикла\n",
+    "flag = False\n",
+    "while ...:\n",
+    "    while ...:\n",
+    "        ...\n",
+    "        if ...:\n",
+    "            flag = True\n",
+    "            break\n",
+    "    if flag:\n",
+    "        break"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "1\n",
+      "4\n",
+      "4\n",
+      "-5\n",
+      "0\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Способ пропуска итерации\n",
+    "n = -1\n",
+    "while n != 0:\n",
+    "    n = int(input())\n",
+    "    if n <= 0:\n",
+    "        continue\n",
+    "    print(n)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Прикол питона\n",
+    "while ...:\n",
+    "    ...\n",
+    "else: # Выполняется, если цикл завершился без break\n",
+    "    ..."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "> Пользоваться вещественными числами без их осознания нельзя."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Лекция №3 (15.09.2017)\n",
+    "### Вещественные числа\n",
+    "Мантисса и экспонента &mdash; 1.234e25 == $1.234*10^{25}$. В компьютере храниться как $m*2^e$."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0.1\n",
+      "0.1000000000000000055511151\n",
+      "0.1000000000000000055511151\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = float(input())\n",
+    "print(\"{0:.25f}\".format(x)) # Форматированный вывод (до 25 знака после запятой)\n",
+    "print(\"%.25f\" % (x)) # Другой вариант"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Сравнение вещественных чисел не всегда удачно. Подробнее на <http://0.30000000000000004.com/>."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0.1 + 0.2 = 0.3000000000000000444089210\n",
+      "0.3       = 0.2999999999999999888977698\n",
+      "0.1 + 0.2 == 0.3? False\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"0.1 + 0.2 = %.25f\" % (0.1 + 0.2))\n",
+    "print(\"0.3       = %.25f\" % (0.3))\n",
+    "print(\"0.1 + 0.2 == 0.3?\", 0.1 + 0.2 == 0.3)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Как правильно сравнивать:  \n",
+    "x == y:  \n",
+    "$|x - y| < 2 * \\varepsilon$  \n",
+    "x < y:  \n",
+    "$x + \\varepsilon < y - \\varepsilon$  \n",
+    "x <= y:  \n",
+    "$x - \\varepsilon < y + \\varepsilon$,  \n",
+    "где $\\varepsilon =$ 5e-16 или в зависимости от задачи.\n",
+    "\n",
+    "> Вещественные числа нужно использовать только от полной безысходности.\n",
+    "\n",
+    "### Стандартная поставка питона"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0.0015926529164868282\n",
+      "-0.9999987317275395\n"
+     ]
+    }
+   ],
+   "source": [
+    "import math\n",
+    "import numpy as np\n",
+    "from math import cos\n",
+    "\n",
+    "print(math.sin(3.14))\n",
+    "print(cos(3.14))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Округление\n",
+    "`| Функция    | 2.5 | 3.5 | -2.5 |  \n",
+    "| int        |  2  |  3  |  -2  |  \n",
+    "| round      |  2  |  4  |  -2  |\n",
+    "| math.floor |  2  |  3  |  -3  |\n",
+    "| math.ceil  |  3  |  4  |  -2  |\n",
+    "| math.trunc |  2  |  3  |  -2  |`\n",
+    "### Работа со строками"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "6\n",
+      "s g\n",
+      "tri\n",
+      "trin\n",
+      "str\n",
+      "str\n",
+      "ing\n",
+      "ing\n",
+      "string\n",
+      "streng\n",
+      "tig\n",
+      "gi\n",
+      "gnirts\n"
+     ]
+    }
+   ],
+   "source": [
+    "#s = input()\n",
+    "s = \"string\"\n",
+    "print(len(s))\n",
+    "print(s[0], s[-1])\n",
+    "print(s[1:4])\n",
+    "print(s[1:-1])\n",
+    "print(s[0:3])\n",
+    "print(s[:3])\n",
+    "print(s[-3:len(s)])\n",
+    "print(s[-3:])\n",
+    "print(s[:]) # Создать новый объект\n",
+    "print(s[:3] + \"e\" + s[4:]) # Заменить четвертый символ строки\n",
+    "print(s[1::2])\n",
+    "print(s[-1:1:-2])\n",
+    "print(s[::-1]) # Инвертировать строку"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "s = \"ABABA\"\n",
+    "if s.find(\"BA\") != -1:\n",
+    "    print(s.find(\"BA\"))\n",
+    "if s.rfind(\"BA\") != -1:\n",
+    "    print(s.rfind(\"BA\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "AAAAA\n",
+      "AA\n",
+      "0\n",
+      "1\n",
+      "2\n",
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Поиск всех подстрок в строке\n",
+    "s = input()\n",
+    "ss = input()\n",
+    "pos = s.find(ss)\n",
+    "while pos != -1:\n",
+    "    print(pos)\n",
+    "    pos = s.find(ss, pos + 1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "AAA\n",
+      "AAAA\n",
+      "2\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"AAAAA\".replace(\"AA\", \"A\"))\n",
+    "print(\"AAAAA\".replace(\"AA\", \"A\", 1)) # Заменить одно первое вхождение\n",
+    "print(\"AAAAA\".count(\"AA\"))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Лекция №4 (18.09.2017)\n",
+    "### Функции"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "120\n",
+      "45\n"
+     ]
+    }
+   ],
+   "source": [
+    "def factorial(N):\n",
+    "    ans = 1\n",
+    "    i = 2\n",
+    "    while i <= N:\n",
+    "        ans *= i\n",
+    "        i += 1\n",
+    "    return ans\n",
+    "\n",
+    "\n",
+    "def cnk(N, K):\n",
+    "    return factorial(N) // (factorial(K) * factorial(N - K))\n",
+    "\n",
+    "\n",
+    "print(factorial(5))\n",
+    "print(cnk(10, 8))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4\n"
+     ]
+    }
+   ],
+   "source": [
+    "def max2(first, second):\n",
+    "    if first > second:\n",
+    "        return first\n",
+    "    return second\n",
+    "\n",
+    "\n",
+    "def max3(first, second, third):\n",
+    "    return max2(first, max2(second, third))\n",
+    "\n",
+    "\n",
+    "print(max3(2, 0, 4))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Глобальные переменные доступны отовсюду\n",
+    "def printA():\n",
+    "    print(a)\n",
+    "\n",
+    "\n",
+    "a = 1\n",
+    "printA()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "0\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Но изменять глобальные переменные так просто нельзя\n",
+    "def someFunc():\n",
+    "    a = 1\n",
+    "    print(a)\n",
+    "\n",
+    "\n",
+    "a = 0\n",
+    "someFunc()\n",
+    "print(a)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "UnboundLocalError",
+     "evalue": "local variable 'a' referenced before assignment",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mUnboundLocalError\u001b[0m                         Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-11-95b7478f9a5e>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m()\u001b[0m\n\u001b[0;32m      6\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      7\u001b[0m \u001b[0ma\u001b[0m \u001b[1;33m=\u001b[0m \u001b[1;36m0\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m----> 8\u001b[1;33m \u001b[0mcrashFunc\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m      9\u001b[0m \u001b[0mprint\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0ma\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;32m<ipython-input-11-95b7478f9a5e>\u001b[0m in \u001b[0;36mcrashFunc\u001b[1;34m()\u001b[0m\n\u001b[0;32m      1\u001b[0m \u001b[1;32mdef\u001b[0m \u001b[0mcrashFunc\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m----> 2\u001b[1;33m     \u001b[0mprint\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0ma\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m      3\u001b[0m     \u001b[1;32mif\u001b[0m \u001b[1;32mFalse\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      4\u001b[0m         \u001b[0ma\u001b[0m \u001b[1;33m=\u001b[0m \u001b[1;36m1\u001b[0m \u001b[1;31m# Хотя этот код не выполнится, переменная будет считаться локальной\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      5\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;31mUnboundLocalError\u001b[0m: local variable 'a' referenced before assignment"
+     ]
+    }
+   ],
+   "source": [
+    "def crashFunc():\n",
+    "    print(a)\n",
+    "    if False:\n",
+    "        a = 1 # Хотя этот код не выполнится, переменная будет считаться локальной\n",
+    "\n",
+    "\n",
+    "a = 0\n",
+    "crashFunc()\n",
+    "print(a)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0\n",
+      "0\n"
+     ]
+    }
+   ],
+   "source": [
+    "def nonCrashFunc():\n",
+    "    global a # Все-таки есть возможность получить доступ к глобальным переменным для присваивания\n",
+    "    print(a)\n",
+    "    if False:\n",
+    "        a = 1\n",
+    "\n",
+    "\n",
+    "a = 0\n",
+    "nonCrashFunc()\n",
+    "print(a)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Тем не менее, глобальные переменные не стоит использовать.\n",
+    "### Возврат нескольких значений функции"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0 3\n",
+      "3 4 4\n"
+     ]
+    }
+   ],
+   "source": [
+    "def sort2(a, b):\n",
+    "    if a > b:\n",
+    "        return b, a\n",
+    "    return a, b\n",
+    "\n",
+    "\n",
+    "def sort3(a, b, c):\n",
+    "    a, b = sort2(a, b)\n",
+    "    b, c = sort2(b, c)\n",
+    "    a, b = sort2(a, b)\n",
+    "    return a, b, c\n",
+    "\n",
+    "\n",
+    "a, b = 3, 0\n",
+    "a, b = sort2(a, b)\n",
+    "print(a, b)\n",
+    "a, b, c = 4, 3, 4\n",
+    "a, b, c = sort3(a, b, c)\n",
+    "print(a, b, c)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Рекурсия"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "2\n",
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Задача \"Вывести 1 2 3\"\n",
+    "def printN(N):\n",
+    "    print(N)\n",
+    "    if N < 3:\n",
+    "        printN(N + 1)\n",
+    "\n",
+    "\n",
+    "printN(1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "2\n",
+      "3\n",
+      "0\n",
+      "3\n",
+      "2\n",
+      "1\n"
+     ]
+    }
+   ],
+   "source": [
+    "def reverse():\n",
+    "    N = int(input())\n",
+    "    if N != 0:\n",
+    "        reverse()\n",
+    "        print(N)\n",
+    "\n",
+    "\n",
+    "reverse()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "По формуле $C^k_n=C^k_{n-1}+C^{k-1}_{n-1}$ можно посчитать $C^k_n$ рекурсивно:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "45\n"
+     ]
+    }
+   ],
+   "source": [
+    "def cnk(n, k):\n",
+    "    if k == 1:\n",
+    "        return n\n",
+    "    if k == n:\n",
+    "        return 1\n",
+    "    return cnk(n - 1, k) + cnk(n - 1, k - 1)\n",
+    "\n",
+    "\n",
+    "print(cnk(10, 8))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "collapsed": true
+   },
+   "source": [
+    "## Лекция №5 (22.09.2017)\n",
+    "### Кортеж &mdash; тьюпл"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(1, 2, 3)\n",
+      "2\n"
+     ]
+    }
+   ],
+   "source": [
+    "testTuple = (1, 2, 3)\n",
+    "print(testTuple)\n",
+    "print(((1, 2), 3)[0][1])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "('a', 'b', 'c')\n"
+     ]
+    }
+   ],
+   "source": [
+    "fromStr = tuple(\"abc\")\n",
+    "print(fromStr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "(1,)\n"
+     ]
+    }
+   ],
+   "source": [
+    "one = (1)\n",
+    "tupl = (1,)\n",
+    "print(one)\n",
+    "print(tupl)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    },
+    {
+     "ename": "TypeError",
+     "evalue": "'<' not supported between instances of 'int' and 'str'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-5-5f3e2d1f4a57>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m()\u001b[0m\n\u001b[0;32m      1\u001b[0m \u001b[0mprint\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;36m1\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m2\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m3\u001b[0m\u001b[1;33m)\u001b[0m \u001b[1;33m<\u001b[0m \u001b[1;33m(\u001b[0m\u001b[1;36m2\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m3\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m4\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m----> 2\u001b[1;33m \u001b[0mprint\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;36m1\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m2\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m3\u001b[0m\u001b[1;33m)\u001b[0m \u001b[1;33m<\u001b[0m \u001b[1;33m(\u001b[0m\u001b[1;36m1\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;34m\"text\"\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[1;31mTypeError\u001b[0m: '<' not supported between instances of 'int' and 'str'"
+     ]
+    }
+   ],
+   "source": [
+    "print((1, 2, 3) < (2, 3, 4))\n",
+    "print((1, 2, 3) < (1, \"text\"))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Функция генерации последовательности range"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)\n",
+      "(5, 6, 7, 8)\n",
+      "(10, 9, 8, 7, 6, 5, 4, 3, 2, 1)\n",
+      "()\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(tuple(range(10)))\n",
+    "print(tuple(range(5, 9)))\n",
+    "print(tuple(range(10, 0, -1)))\n",
+    "print(tuple(range(10, 10)))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Цикл for"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "red apple\n",
+      "green apple\n",
+      "yellow apple\n"
+     ]
+    }
+   ],
+   "source": [
+    "for color in (\"red\", \"green\", \"yellow\"):\n",
+    "    print(color, \"apple\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\t2\t3\t4\t5\t6\t7\t8\t9\t10\t\n",
+      "2\t4\t6\t8\t10\t12\t14\t16\t18\t20\t\n",
+      "3\t6\t9\t12\t15\t18\t21\t24\t27\t30\t\n",
+      "4\t8\t12\t16\t20\t24\t28\t32\t36\t40\t\n",
+      "5\t10\t15\t20\t25\t30\t35\t40\t45\t50\t\n",
+      "6\t12\t18\t24\t30\t36\t42\t48\t54\t60\t\n",
+      "7\t14\t21\t28\t35\t42\t49\t56\t63\t70\t\n",
+      "8\t16\t24\t32\t40\t48\t56\t64\t72\t80\t\n",
+      "9\t18\t27\t36\t45\t54\t63\t72\t81\t90\t\n",
+      "10\t20\t30\t40\t50\t60\t70\t80\t90\t100\t\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i in range(1, 11):\n",
+    "    for j in range(1, 11):\n",
+    "        print(i * j, end=\"\\t\")\n",
+    "    print()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Список"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 1, 3, 4]\n"
+     ]
+    }
+   ],
+   "source": [
+    "myList = [1, 2, 3, 4]\n",
+    "myList[1] = 1\n",
+    "print(myList)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 3]\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = [1, 2]\n",
+    "b = a\n",
+    "a[1] = 3\n",
+    "print(b)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 2]\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = [1, 2]\n",
+    "b = [1, 2]\n",
+    "a[1] = 3\n",
+    "print(b)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 2]\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = [1, 2]\n",
+    "b = a[:]\n",
+    "a[1] = 3\n",
+    "print(b)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 2, 1, 2]\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = [1, 2]\n",
+    "a += a\n",
+    "print(a)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[3, 2, 1]\n",
+      "[1, 2, 3]\n",
+      "[1, 2, 3]\n",
+      "[3, 2, 1]\n"
+     ]
+    }
+   ],
+   "source": [
+    "def _reversed(myList):\n",
+    "    return myList[::-1]\n",
+    "\n",
+    "\n",
+    "def badReverse(myList):\n",
+    "    myList = myList[::-1]\n",
+    "\n",
+    "\n",
+    "def reverse(myList):\n",
+    "    for i in range(len(myList) // 2):\n",
+    "        myList[i], myList[- i - 1] = myList[- i - 1], myList[i]\n",
+    "\n",
+    "\n",
+    "a = [1, 2, 3]\n",
+    "print(_reversed(a))\n",
+    "print(a)\n",
+    "\n",
+    "badReverse(a)\n",
+    "print(a)\n",
+    "\n",
+    "\n",
+    "reverse(a)\n",
+    "print(a)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Методы строк"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['abc', 'd', 'ef']\n",
+      "['abc', 'd', '', '', 'ef']\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"abc d   ef\".split())\n",
+    "print(\"abc d   ef\".split(\" \"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "123 45 67\n",
+      "[123, 45, 67]\n",
+      "123 45 67\n",
+      "123 45 67\n"
+     ]
+    }
+   ],
+   "source": [
+    "nums = list(map(int, input().split()))\n",
+    "print(nums)\n",
+    "print(\" \".join(map(str, nums)))\n",
+    "print(*nums)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Задача &mdash; удалить все четные элементы списка"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "IndexError",
+     "evalue": "list index out of range",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mIndexError\u001b[0m                                Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-34-120d14eb55b4>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m()\u001b[0m\n\u001b[0;32m      1\u001b[0m \u001b[0mlst\u001b[0m \u001b[1;33m=\u001b[0m \u001b[1;33m[\u001b[0m\u001b[1;36m2\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m3\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m4\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m4\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m1\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      2\u001b[0m \u001b[1;32mfor\u001b[0m \u001b[0mi\u001b[0m \u001b[1;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mlen\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mlst\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m----> 3\u001b[1;33m     \u001b[1;32mif\u001b[0m \u001b[0mlst\u001b[0m\u001b[1;33m[\u001b[0m\u001b[0mi\u001b[0m\u001b[1;33m]\u001b[0m \u001b[1;33m%\u001b[0m \u001b[1;36m2\u001b[0m \u001b[1;33m==\u001b[0m \u001b[1;36m0\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m      4\u001b[0m         \u001b[0mlst\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mpop\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mi\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;31mIndexError\u001b[0m: list index out of range"
+     ]
+    }
+   ],
+   "source": [
+    "# Неправильное решение\n",
+    "lst = [2, 3, 4, 4, 1]\n",
+    "for i in range(len(lst)):\n",
+    "    if lst[i] % 2 == 0:\n",
+    "        lst.pop(i)\n",
+    "print(lst)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[3, 4, 1]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Неправильное решение\n",
+    "lst = [2, 3, 4, 4, 1]\n",
+    "i = 0\n",
+    "while i < len(lst):\n",
+    "    if lst[i] % 2 == 0:\n",
+    "        lst.pop(i)\n",
+    "    i += 1\n",
+    "print(lst)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[3, 1]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Правильное решение\n",
+    "lst = [2, 3, 4, 4, 1]\n",
+    "ans = []\n",
+    "for now in lst:\n",
+    "    if now % 2 != 0:\n",
+    "        ans.append(now)\n",
+    "print(ans)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Лекция №6 (25.09.2017)\n",
+    "### Сортировка\n",
+    "Тройка примеров простейшей сортировки:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5 6 3 0 1 2 9\n",
+      "0 1 2 3 5 6 9\n"
+     ]
+    }
+   ],
+   "source": [
+    "myList = list(map(int, input().split()))\n",
+    "\n",
+    "myList.sort()\n",
+    "\n",
+    "print(*myList)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "qwerty\n",
+      "e q r t w y\n"
+     ]
+    }
+   ],
+   "source": [
+    "myList = input()\n",
+    "\n",
+    "sortedList = sorted(myList) # Принимает itarable\n",
+    "\n",
+    "print(*sortedList)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "myList.sort(reversed=True) # Сортировка в обратном порядке"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n",
+      "Ivan  180\n",
+      "John  175\n",
+      "Sidor 178\n",
+      "John 175\n",
+      "Sidor 178\n",
+      "Ivan 180\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Задача \"отсортировать людей по росту (по неубыванию)\"\n",
+    "N = int(input())\n",
+    "mans = []\n",
+    "for i in range(N):\n",
+    "    name, height = input().split()\n",
+    "    height = int(height)\n",
+    "    mans.append((height, name))\n",
+    "    \n",
+    "mans.sort() # Вызов метода без параметров позволяет отсортивать по неубыванию\n",
+    "\n",
+    "for man in mans:\n",
+    "    print(man[1], man[0])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Задача \"отсортировать людей по росту (по невозрастанию)\"\n",
+    "def negativeHeight(man):\n",
+    "    return (-man[0], man[1])\n",
+    "\n",
+    "N = int(input())\n",
+    "mans = []\n",
+    "for i in range(N):\n",
+    "    name, height = input().split()\n",
+    "    height = int(height)\n",
+    "    mans.append((height, name))\n",
+    "\n",
+    "mans.sort(key=negativeHeight) # Ключ -- функция для нужного сравнения элементов\n",
+    "\n",
+    "for man in mans:\n",
+    "    print(man[1], man[0])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Сортировка точек по расстоянию от начала координат\n",
+    "def sqrDist(point):\n",
+    "    return point[0] ** 2 + point[1] ** 2\n",
+    "\n",
+    "points.sort(key=sqrDist)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Анонимные функции -- лямбды. Пример эквивалентен примеру выше\n",
+    "points.sort(key=lambda point: point[0] ** 2 + point[1] ** 2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Возможность хранения структуры внутри класса\n",
+    "class Man:\n",
+    "    pass\n",
+    "\n",
+    "man = Man()\n",
+    "man.height = 180\n",
+    "man.name = \"Ivan\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Параметры функций"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1 2 3\n",
+      "1;2;3\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Именованные параметры\n",
+    "def printList(lst, sep=' '):\n",
+    "    print(sep.join(map(str, lst)))\n",
+    "\n",
+    "printList([1, 2, 3])\n",
+    "printList([1, 2, 3], sep=\";\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "-8\n"
+     ]
+    }
+   ],
+   "source": [
+    "# varargs -- неизвестное кол-во параметров записывается в список\n",
+    "def _min(*args):\n",
+    "    if len(args) < 1:\n",
+    "        return None\n",
+    "\n",
+    "    nowMin = args[0]\n",
+    "\n",
+    "    for now in args:\n",
+    "        if now < nowMin:\n",
+    "            nowMin = now\n",
+    "    return nowMin\n",
+    "\n",
+    "print(_min(1, 3, 5, -8, 0, 4))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Работа с файлами"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Считать весь текст, вывести каждую строку наоборот\n",
+    "inpFile = open(\"input.txt\", \"r\", encoding=\"utf8\")\n",
+    "outpFile = open(\"output.txt\", \"w\", encoding=\"utf8\")\n",
+    "\n",
+    "for line in inpFile:\n",
+    "    print(line[::-1], file=outpFile)\n",
+    "\n",
+    "inpFile.close()\n",
+    "outpFile.close()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Лекция №7 (02.10.2017)\n",
+    "### Множества"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{1, 2, 3}\n"
+     ]
+    }
+   ],
+   "source": [
+    "mySet = {1, 2, 3} # Создание множества\n",
+    "print(mySet)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "firstSet = {1, 2, 1, 3}\n",
+    "secondSet = {2, 1, 3}\n",
+    "print(firstSet == secondSet) # Сравнение множеств"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{1, 2, 3, 4, 5}\n"
+     ]
+    }
+   ],
+   "source": [
+    "numList = [1, 4, 5, 2, 3]\n",
+    "numSet = set(numList) # Получить множество из списка\n",
+    "print(numSet)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{1, 'abc', 3.14, (1, 2, 3)}\n"
+     ]
+    }
+   ],
+   "source": [
+    "bigSet = {1, 3.14, \"abc\", (1, 2, 3)} # Можно помещать только неизменяемые объекты\n",
+    "print(bigSet)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "12 14 12 15 12 1\n",
+      "12 1 15 14\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(*set(input().split())) # Вывести все элементы множества"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "12 14 12 15 12 1\n",
+      "1 12 14 15\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(*sorted(set(map(int, input().split())))) # Вывести все элементы множества в порядке возрастания"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "if x in numSet: # Находится ли x в множестве\n",
+    "    ..."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "if x not in numSet: # Отсутствует ли x в множестве\n",
+    "    ..."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "if not x in numSet: # Отсутствует ли x в множестве (такой вариант тоже возможен)\n",
+    "    ..."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Добавление элемента\n",
+    "numSet.add(x)\n",
+    "\n",
+    "# Удаление элемента\n",
+    "numSet.discard(x)\n",
+    "numSet.remove(x) # Выдает ошибку, если нет такого элемента"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "s = set() # Создание пустого множества"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "frosen = frosenset(myIterable) # Создание неизменяемого множества"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Операции над множествами\n",
+    "`A | B` &mdash; Объединение  \n",
+    "`A & B` &mdash; Пересечение  \n",
+    "`A - B` &mdash; Без  \n",
+    "`A ^ B` &mdash; xor  \n",
+    "`A |= B` &mdash; Операция и присваивание  \n",
+    "`A == B` &mdash; Равенство  \n",
+    "`A != B` &mdash; Неравенство  \n",
+    "`A <= B` &mdash; Включение  \n",
+    "`A < B` &mdash; Включение и не равенство\n",
+    "### Словари\n",
+    "> Кто еще считает, что Москва по-английски Mascva?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "capitals = {\"Russia\": \"Moscow\", \"UK\": \"London\"} # Создание словаря\n",
+    "capitals[\"France\"] = \"Paris\" # Добавление элемента"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{1: 1, 10: 100}\n"
+     ]
+    }
+   ],
+   "source": [
+    "sqrs = {} # Создание пустого словаря\n",
+    "sqrs[1] = 1\n",
+    "sqrs[10] = 100\n",
+    "print(sqrs)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "dict([(key1, value1), (key2, value2)]) # Создание словаря из списка кортежей из двух элементов"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "del dct[key] # Удаление элемента"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "dct[x] = dct.get(x, 0) + 1 # Получить элемент x, если его нет, то взять 0"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "capitals.items() # Возвращает iterable с парами ключ-значение"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "> Такие веселые! Вас слово strip что ли смущает?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n",
+      "apple - malum, pomum, popula\n",
+      "fruit - baca, bacca, pomum\n",
+      "5\n",
+      "malum - apple\n",
+      "pomum - apple, fruit\n",
+      "popula - apple\n",
+      "baca - fruit\n",
+      "bacca - fruit\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Задача \"Вывести значение-ключ для введенных пар ключ-значение\"\n",
+    "n = int(input())\n",
+    "le = {}\n",
+    "for i in range(n):\n",
+    "    eng, latinsStr = input().split(\" - \")\n",
+    "    eng = eng.strip()\n",
+    "    latins = list(map(lambda x: x.strip(), latinsStr.split(\", \")))\n",
+    "    for latin in latins:\n",
+    "        le[latin] = le.get(latin, []) + [eng]\n",
+    "\n",
+    "print(len(le))\n",
+    "for now in le:\n",
+    "    print(now, \"-\", \", \".join(le[now]))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Лекция №8 (06.10.2017)\n",
+    "### Функциональное программирование"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Заключается в построении конвееров, используя функции\n",
+    "sum(...)\n",
+    "min(...), max(...)\n",
+    "map(predicate, iterable)\n",
+    "map(hypot, x, y)\n",
+    "filter(predicate, iterable)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Найти минимальное положительное\n",
+    "print(\n",
+    "    min(\n",
+    "        filter(\n",
+    "            lambda x: x > 0,\n",
+    "            map(\n",
+    "                int,\n",
+    "                input().split()\n",
+    "            )\n",
+    "        )\n",
+    "    )\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Проверить, что все числа не превосходят ста\n",
+    "all(map(lambda  x: abs(x) <= 100, map(int, input().split())))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n",
+      "3 5 4\n",
+      "30 20 10\n",
+      "1 3 2\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Задача: вводится кол-во запросов на такси;\n",
+    "# кол-во километров в каждом запросе; тарифы разных шоферов за км.\n",
+    "# Требуется определить, кому какого шофера подать, чтобы сумма была наименьшей.\n",
+    "n = int(input())\n",
+    "km = map(int, input().split())\n",
+    "cost = map(int, input().split())\n",
+    "sortedKm = sorted(enumerate(km), key=lambda x: x[1])\n",
+    "sortedCost = sorted(enumerate(cost), key=lambda x: x[1], reverse=True)\n",
+    "kmCostSorted = zip(sortedKm, sortedCost)\n",
+    "sortedKmCostSorted = sorted(kmCostSorted, key=lambda x: x[0][0])\n",
+    "print(*map(lambda x:x[1][0] + 1, sortedKmCostSorted))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n",
+      "3 5 4\n",
+      "30 20 10\n",
+      "1 3 2\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Решение той же задачи без использования переменных\n",
+    "n = int(input())\n",
+    "print(\n",
+    "    *map(\n",
+    "        lambda x:x[1][0] + 1,\n",
+    "        sorted(\n",
+    "            zip(\n",
+    "                sorted(\n",
+    "                    enumerate(map(int, input().split())),\n",
+    "                    key=lambda x: x[1]\n",
+    "                ),\n",
+    "                sorted(\n",
+    "                    enumerate(map(int, input().split())),\n",
+    "                    key=lambda x: x[1],\n",
+    "                    reverse=True)\n",
+    "            ),\n",
+    "            key=lambda x: x[0][0]\n",
+    "        )\n",
+    "    )\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "import itertools\n",
+    "itertools.combinations(iterable, size) # Возвращает все подмножества от iterable\n",
+    "itertools.permutations(iterable) # Возвращает все перестановки от iterable\n",
+    "itertools.combinations_with_replacement(iterable, size) # Возвращает все перестановки с повторениями"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "multiplication: 6\n",
+      "maxes: 1 2 3 4 4 4\n"
+     ]
+    }
+   ],
+   "source": [
+    "import functools\n",
+    "import itertools\n",
+    "prints = functools.partial(print, end=\" \") # Создание функции для печати без переноса строки\n",
+    "print(\"multiplication:\", functools.reduce(lambda x, y: x * y, (1, 2, 3))) # Сбор iterable\n",
+    "print(\"maxes:\", *itertools.accumulate((1, 2, 3, 4, -1, 0), max)) # Созранение максимума"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Пример реализаций функций, которые возвращают iterable\n",
+    "def myRange(n):\n",
+    "    now = 0\n",
+    "    while now < n:\n",
+    "        yield now\n",
+    "        now += 1\n",
+    "\n",
+    "def myMap(function, iterable):\n",
+    "    for now in iterable:\n",
+    "        yield function(now)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Лекция №9 (09.10.2017)\n",
+    "### Объектно-ориентированное программирование\n",
+    "> На питоне могут писать даже очень глупые люди."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(6.123233995736766e-17+1j)\n"
+     ]
+    }
+   ],
+   "source": [
+    "print((-1.0) ** 0.5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n",
+      "3+2i\n",
+      "8+3i\n"
+     ]
+    }
+   ],
+   "source": [
+    "class Complex: # Объявление класса\n",
+    "    def __init__(self, re=0, im=0):\n",
+    "        self.re = re\n",
+    "        self.im = im\n",
+    "    \n",
+    "    def __str__(self):\n",
+    "        strRep = str(self.re)\n",
+    "        if self.im >= 0:\n",
+    "            strRep += \"+\"\n",
+    "        return strRep + str(self.im) + \"i\"\n",
+    "    \n",
+    "    def __add__(self, other): # operator +\n",
+    "        return Complex(self.re + other.re, self.im + other.im)\n",
+    "    \n",
+    "    __radd__ = __add__ # Right addition -- выполняется, если объект класса стоит справа в выражении\n",
+    "\n",
+    "x = Complex(3, 2)\n",
+    "print(x.re)\n",
+    "print(x)\n",
+    "print(x + Complex(5, 1))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2.23606797749979\n",
+      "(1, 2)\n"
+     ]
+    }
+   ],
+   "source": [
+    "class Point(Complex): # Наследование класса Complex: доступны все методы это класса\n",
+    "    def dist(self): # Добавление нового метода\n",
+    "        return (self.re ** 2 + self.im ** 2) ** 0.5\n",
+    "    \n",
+    "    def __str__(self): # Переопределение метода\n",
+    "        return str((self.re, self.im))\n",
+    "\n",
+    "p = Point(1, 2)\n",
+    "print(p.dist())\n",
+    "print(p)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Исключения"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1+5i\n",
+      "Error with complex params 3+4i abc\n"
+     ]
+    }
+   ],
+   "source": [
+    "class ComplexException(BaseException): # Создание класса исключения\n",
+    "    def __init__(self, comp, other):\n",
+    "        self.comp = comp\n",
+    "        self.other = other\n",
+    "\n",
+    "class Complex:\n",
+    "    def __init__(self, re=0, im=0):\n",
+    "        self.re = re\n",
+    "        self.im = im\n",
+    "    \n",
+    "    def __str__(self):\n",
+    "        strRep = str(self.re)\n",
+    "        if self.im >= 0:\n",
+    "            strRep += \"+\"\n",
+    "        return strRep + str(self.im) + \"i\"\n",
+    "    \n",
+    "    def __mul__(self, other): # operator *\n",
+    "        if not isinstance(other, Complex):\n",
+    "            if isinstance(other, int) or isinstance(other, float):\n",
+    "                other = Complex(other)\n",
+    "            else:\n",
+    "                raise ComplexException(self, other) # Поднятие исключения\n",
+    "        newRe = self.re * other.re - self.im * other.im\n",
+    "        newIm = self.im * other.re + self.re * other.im\n",
+    "        return Complex(newRe, newIm)\n",
+    "    \n",
+    "    __rmul__ = __mul__\n",
+    "\n",
+    "try:\n",
+    "    print(x * Complex(1, 1))\n",
+    "    y = Complex(3, 4) * \"abc\" # Здесь исключительная ситуация\n",
+    "except ComplexException as ce:\n",
+    "    print(\"Error with complex params\", ce.comp, ce.other)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "> ООП не изучается за одну лекцию и за одну домашку!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Лекция №10 (16.10.2017)\n",
+    "### >> Начинаются развлечения\n",
+    "\n",
+    "> Считайте, что вы знаете Python с этого момента  \n",
+    "\n",
+    "&nbsp;  \n",
+    "> Что вас ждет в будущем  \n",
+    "\n",
+    "&nbsp;  \n",
+    "- C++ (ОиМП)\n",
+    "- Алгоритмы и Структуры Данных (АиСД)\n",
+    "- Архитектура Компьютера и Операционные Системы (АКОС)\n",
+    "- Машинное Обучение 1 &mdash; Python, pandas...\n",
+    "- Проект\n",
+    "- Работа"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
