@@ -33,6 +33,8 @@ HSE Software Engineering docs safespace
 - [Папка с материалами по 1 курсу (различные темы)](https://drive.google.com/drive/folders/1mwh6T4W00BUHz3mga4nWMgFMJM7eIUOg)
 - [Сайт с решением БЖД](https://iko.soy/hse)
 - [Вики по всему ПМИ](http://wiki.cs.hse.ru/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0)
+- [Полный конспект по С++ (ПМИ)](https://github.com/Ballr0g/HSE-Dreamteam/blob/master/C%2B%2B%20%D0%9F%D0%9C%D0%98%202017-2018.ipynb)
+- [Полный конспект по Python (ПМИ)](https://github.com/Ballr0g/HSE-Dreamteam/blob/master/Python%20%D0%9F%D0%9C%D0%98%202017-2018.ipynb)
 
 
 
