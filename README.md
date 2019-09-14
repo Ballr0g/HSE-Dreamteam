@@ -13,11 +13,17 @@ HSE Software Engineering docs safespace
 - Видео/аудио записи лекций и семинаров
 - Полезные ссылки на материал.
 
-Полезные ссылки:
+**Полезные ссылки:**
 
 - [Папка по программированию](http://bit.do/progCS2019)
+- [Тест Подбела <3](http://podbel.ru)
+
 - [Вики по курсу алгебры 2019-2020](http://hsealgebra20.wikidot.com)
 - [Вики по курсу алгебры 2018-2019](http://hsealgebra19.wikidot.com)
-- [Тест Подбела <3](http://podbel.ru)
+- [Сайт по Вышмату по рекомендации куратора](http://mathprofi.ru/)
+
+- [Папка с материалами за 2017-2018 год](https://paper.dropbox.com/doc/171-FEcBZyQPLbMwKMAPP1vQr)
+- [Папка с материалами по 1 курсу](https://drive.google.com/drive/folders/1mwh6T4W00BUHz3mga4nWMgFMJM7eIUOg)
+- [Сайт с решением БЖД](https://iko.soy/hse)
 
 Ave Avdoshin, deus 8.
