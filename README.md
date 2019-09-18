@@ -22,6 +22,7 @@ HSE Software Engineering docs safespace
   
   
 - [Папка по программированию](http://bit.do/progCS2019)
+- [C# с нуля (База)](https://vk.com/video40442478_456239116?api_access_key=91c96eed634ec1f8a4)
 - [Тест Подбела <3](http://podbel.ru)
   
   
